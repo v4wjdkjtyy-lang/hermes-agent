@@ -72,6 +72,21 @@ HERMES_HOME=/tmp/throwaway npm run dev
 npm run dev:fake-boot   # exercise the startup overlay with deterministic delays
 ```
 
+Run a fully isolated desktop instance (throwaway HERMES_HOME, separate Electron
+userData, distinct app name to avoid the single-instance lock):
+
+```bash
+scripts/desktop-sandbox.sh hermes desktop
+scripts/desktop-sandbox.sh --persistent hermes desktop  # survives restarts
+```
+
+In the Nix devShell the script is available as `sandbox`:
+
+```bash
+sandbox hermes desktop
+sandbox --persistent hermes desktop
+```
+
 ### Building installers
 
 ```bash

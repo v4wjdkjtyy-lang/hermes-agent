@@ -32,6 +32,10 @@
               mkdir -p $out/bin
               install -Dm755 ${../hermes} $out/bin/hermes
             '')
+            (pkgs.runCommand "desktop-sandbox" { } ''
+              mkdir -p $out/bin
+              install -Dm755 ${../scripts/desktop-sandbox.sh} $out/bin/sandbox
+            '')
             uv
           ]
           ++ self'.packages.default.passthru.devDeps;
